@@ -1,0 +1,47 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing">
+
+        <form asp-action="Delete" class="mt-3 my-5 mx-3">
+
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </dt>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.GenderDesc)
+                    </dt>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.UserName)
+                    </dt>
+                    <dt class="col-sm-3">
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+                </dl>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 control-label">
+                        @Html.ActionLink("Geri", "UserIndex", "UserManagment", null, new { @class = "btn btn-info btn-lg btn-block" })
+
+                </div>
+                <div class="col-md-6 control-label">
+                    <input id="frmProductCat" type="submit" value="Sil" class="btn btn-danger btn-lg btn-block" tabindex="16" />
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>

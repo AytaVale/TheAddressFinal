@@ -1,0 +1,65 @@
+﻿@model List<PropertyCategoryDto>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="row mt-3 mx-3">
+
+    <div id="tableProgress" class="col-lg-12 col-12 layout-spacing">
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+
+                    <div class="col-6">
+                        <h2 class="text-primary">
+                            Kategoriya siyahısı
+                        </h2>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a asp-controller="PropertyCategories" asp-action="Create" class="btn btn-primary">
+                            <i class="bi bi-plus-circle"></i>&nbsp; Yeni kateqoriya yarat
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="widget-content widget-content-area">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>Ad</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+
+                                foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="text-center">@item.Id</td>
+                                        <td class="text-center">@item.Name</td>
+                                        <td class="text-center" role="group">
+                                            <a asp-controller="PropertyCategories" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" aria-current="page">  <i class="bi bi-trash-fill"></i>Sil</a>
+                                            <a asp-controller="PropertyCategories" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary" aria-current="page"> <i class="bi bi-pencil-square"></i>Dəyiş</a>
+                                        </td>
+                                    </tr>
+                                }
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>

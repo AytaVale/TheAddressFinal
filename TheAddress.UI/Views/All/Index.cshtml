@@ -1,0 +1,11 @@
+﻿<main>
+    <!-- filter -->
+    <!-- cards -->
+    <div class="container">
+        <section>
+            <div class="row cards">
+                @await Component.InvokeAsync("Cart", new{counts = ViewBag.Count, buy = ViewBag.Buy, rent = ViewBag.Rent});
+            </div>
+        </section>
+    </div>
+</main>

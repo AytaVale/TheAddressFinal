@@ -1,0 +1,198 @@
+﻿<main>
+    <!-- Carousel -->
+    <div class="container-fluid">
+        <div class="slider">
+            <section style="height: 100%;">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/assets/images/property1.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/assets/images/property2.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/assets/images/property3.jpg" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+            <section class="search-sec">
+                <div class="container">
+                    <form action="#" method="post" novalidate="novalidate">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                            <option>Mənzil</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                            <option>1 otaq</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                            <option>Nərimanov rayonu</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                            <option>Example one</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                        <button type="button" class="btn wrn-btn">Axtar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- Cards -->
+    <div class="container">
+        <section>
+            <div class="row cards">
+
+                @await Component.InvokeAsync("Cart", new{counts = ViewBag.Count})
+           
+            </div>
+            <div class="all_properties">
+                <a asp-controller="all" asp-action="index" asp-route-count="5" class="btn-1 d-block w-50">Daha çox</a>
+            </div>
+        </section>
+
+        <!-- Cards of categories -->
+        <section class="category-section">
+            <div class="card-grid">
+                <a class="card2" href="#">
+                    <div class="card__background" style="background: url(/assets/images/property1.jpg); background-size: cover;">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Mənzil</h3>
+                    </div>
+                </a>
+                <a class="card2" href="#">
+                    <div class="card__background" style="background: url(/assets/images/property1.jpg); background-size: cover;">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Bağ evi</h3>
+                    </div>
+                </a>
+                <a class="card2" href="#">
+                    <div class="card__background" style="background: url(/assets/images/property1.jpg); background-size: cover;">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Yeni tikili</h3>
+                    </div>
+                </a>
+                <a class="card2" href="#">
+                    <div class="card__background" style="background: url(/assets/images/property1.jpg); background-size: cover;">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Torpaq sahəsi</h3>
+                    </div>
+                </a>
+                <a class="card2" href="#">
+                    <div class="card__background" style="background: url(/assets/images/property1.jpg); background-size: cover;">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                </a>
+                <a class="card2" href="#">
+                    <div class="card__background" style="background: url(/assets/images/property1.jpg); background-size: cover;">
+                    </div>
+                    <div class="card__content">
+                        <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                </a>
+                <div>
+        </section>
+        <!-- Form -->
+        <section>
+            <div class="form d-flex align-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="inner d-flex align-center">
+                            <div class="text col-xs col-sm col-md-4 col-lg-4">
+                                <h5 class="s-35 c-white">
+                                    <span class="c-primary d-block">Bizimlə əlaqə! </span> Lorem, ipsum dolor.
+                                    <br>Lorem, ipsum!
+                                </h5>
+                            </div>
+                            <div class="wForm col-xs col-sm col-md-8 col-lg-8">
+                                <p class="c-white">
+                                    <span class="s-35 d-block">Adınızı və əlaqə nömrənizi qeyd edin</span>
+                                    <span class="s-16">bizim əməkdaşlar sizə köməklik göstərsin!</span>
+                                </p>
+                                <form action="/action_page.php">
+                                    <input type="text" id="name" name="name" placeholder="Adınız"><br>
+                                    <input type="tel" id="telephone" name="telephone" placeholder="Mobil nömrə"><br><br>
+                                    <input type="submit" value="Göndər" class="submit">
+                                </form>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- About -->
+        <section class="about">
+            <div class="image-box" data-reveal="left">
+                <img src="~/assets/images/nathan-dumlao-2VA7xZx_l9Q-unsplash.jpg" alt="" class="img">
+            </div>
+            <div class="content-box">
+                <h2 class="title" data-reveal="left">
+                    Lorem
+                </h2>
+                <p class="text" data-reveal="left">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id laborum iste doloremque ab facere unde alias sit
+                    commodi accusamus? Eius ut molestiae nemo perspiciatis, pariatur numquam accusamus voluptatem libero sint.
+                </p>
+            </div>
+            <div class="content-box">
+                <h2 class="title" data-reveal="left">
+                    Lorem2
+                </h2>
+                <p class="text" data-reveal="left">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id laborum iste doloremque ab facere unde alias sit
+                    commodi accusamus? Eius ut molestiae nemo perspiciatis, pariatur numquam accusamus voluptatem libero sint.
+                </p>
+            </div>
+            <div class="image-box" data-reveal="left">
+                <img src=".//images/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="" class="img">
+            </div>
+        </section>
+    </div>
+</main>

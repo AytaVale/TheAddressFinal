@@ -1,0 +1,83 @@
+﻿<header>
+    <div id="mainNavigation">
+        <div class="container">
+            <nav role="navigation">
+                <div class="top py-3 text-center border-bottom d-flex">
+                    <a href="homepage.html">
+                        <img src="~/assets/images/logo.png" alt="" class="invert">
+                    </a>
+                    <div class="phone_block d-flex align-center">
+                        <div class="phoneSchedule ">
+                            <a href="tel:+994505551525" class="c-black s-21 td-none">
+                                (+994 50) 555-15-25
+                            </a>
+                            <br>
+                            <a href="tel:+994555551525" class="c-black s-21 td-none">
+                                (+994 55) 555-15-25
+                            </a>
+                        </div>
+                        <div class="recall primary d-flex align-center openModal" data-modal="recall">
+                            <div class="recall_text primary row-wrap">
+                                <span class="recall d-block s-10 w100">Konsultasiya</span>
+                            </div>
+                            <div class="recall_link primary">
+                                <a href="https://wa.me/994555551525">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="navbar-expand-md d-flex">
+                <div class="menu">
+                    <div class="navbar-dark text-center my-2">
+                        <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+                        </button>
+                    </div>
+                    <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav mx-auto ">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="all" asp-action="index" asp-route-buy="true">Almaq</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Satmaq</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="all" asp-action="index" asp-route-rent="true">Kirayə</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    Company
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+                                    style="width: 95%; text-align: center;">
+                                    <li><a class="dropdown-item" href="#">Blog</a></li>
+                                    <li><a class="dropdown-item" href="#">About Us</a></li>
+                                    <li><a class="dropdown-item" href="#">Contact us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="fav">
+                    <a class="favv" href="#">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

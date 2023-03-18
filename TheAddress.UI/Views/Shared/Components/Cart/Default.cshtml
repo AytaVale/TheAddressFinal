@@ -1,0 +1,30 @@
+﻿@model List<Property>
+
+
+@foreach(var item in Model)
+{
+    <div class="card col-xs col-sm col-md-3 col-lg-3">
+        <div class="wrapper">
+            <div class="fotorama">
+                @foreach(var itemm in item.PropertyDocuments)
+                {
+                    <img class="card-img-top" src="/img/@itemm.DocumentUrl" alt="">
+                    
+                }
+
+            </div>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@item.Name</h5>
+            <p class="card-text">
+           @item.Address
+            </p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@item.Price/li>
+        </ul>
+        <div class="card-body">
+            <a asp-controller="Property" asp-action="index" class="card-link">Ətraflı</a>
+        </div>
+    </div>
+}

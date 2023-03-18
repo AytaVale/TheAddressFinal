@@ -1,0 +1,41 @@
+﻿@model RoleViewModel
+@{
+    ViewData["Title"] = "RoleUpdate";
+}
+
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing">
+
+        <form method="post" enctype="multipart/form-data" class="mt-3 my-5" style="width:100%">
+
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="col-6">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="col-md-3 control-label">
+                    @Html.ActionLink("Geri", "RoleIndex", "UserManagment", null, new { @class = "btn btn-primary btn-lg btn-block" })
+
+                </div>
+                <div class="col-md-3 control-label">
+                    <input id="frmProduct" type="submit" value="Yadda saxla" class="btn btn-primary btn-lg btn-block" tabindex="16" />
+
+                </div>
+
+            </div>
+
+        </form>
+
+    </div>
+</div>
+

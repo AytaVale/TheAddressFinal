@@ -1,0 +1,273 @@
+﻿@model List<PropertyDto>
+
+<link rel="stylesheet" href="~/assets/css/propertypage.css">
+
+<main>
+    <div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="row" style="margin-top: 20px;">
+                <div class="property-photo col-xs col-sm col-md col-lg-8">
+                    <div class="fotorama" data-nav="thumbs">
+                        @foreach (var itemm in item.PropertyDocuments)
+                        {
+                            <a href="1.jpg"><img src="/img/@itemm.DocumentUrl" width="144" height="96"></a>
+                        }
+                        
+                    </div>
+                    <div class="property-photo property-content-bottom">
+                        <p class="property-content-text">
+                            @item.Description
+                    </div>
+                </div>
+                <div class="property-info col-xs col-sm col-md col-lg-4">
+                    <div class="property-info-top d-flex align-center">
+                        <span>
+                            @item.Name
+                        </span>
+                        <div class="favicon">
+                            <a href="#">
+                                <i class="fa-solid fa-heart"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="property-info-text">
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Ünvan:</div>
+                            <div class="property-info-second" style="text-align: right;">@item.Address</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Sahə:</div>
+                            <div class="property-info-second" style="text-align: right;">
+                                @item.Area<br>
+                            </div>
+                        </div>
+                        <div class="property-info-item active">
+                            <span class="property-info-first">Mərtəbə:</span>
+                            <div class="property-info-second">@item.Floor</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Otaq sayı:</div>
+                            <div class="property-info-second">@item.RoomCount</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Lorem:</div>
+                            <div class="property-info-second">2</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Lorem:</div>
+                            <div class="property-info-second">2</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Lorem:</div>
+                            <div class="property-info-second">00</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Lorem, ipsum:</div>
+                            <div class="property-info-second">9999</div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Lorem:</div>
+                            <div class="property-info-second" style="text-align: right;">
+                                Lorem ipsum dolor sit amet.
+                            </div>
+                        </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Lift:</div>
+                            <div class="property-info-second">Var</div>
+                        </div>
+                        <div class="price d-flex">
+                            <span>@item.Price</span>
+                            <div class="dropdown-price">
+                                <select name="price" id="#">
+                                    <option value="AZN" selected>AZN</option>
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="RUB">RUB</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="inputs">
+                            <input class="toSee" type="submit" value="Təqdimat üçün yazılmaq">
+                            <input class="toCall" type="submit" value="Konsultasiya">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- map -->
+            <section>
+                <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.4283503015417!2d49.85172681569148!3d40.377198065966176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d077c61fef3%3A0xfa4594c97092ca01!2sAF%20Business%20House!5e0!3m2!1sen!2saz!4v1677842043976!5m2!1sen!2saz"
+                        width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+
+            <!-- rated -->
+            <section class="rated">
+                <h3>
+                    Bənzər əmlaklar
+                </h3>
+                <div class="row cards">
+                    <div class="card col-xs col-sm col-md-3 col-lg-3">
+                        <div class="wrapper">
+                            <div class="fotorama">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card col-xs col-sm col-md-3 col-lg-3">
+                        <div class="wrapper">
+                            <div class="fotorama">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card col-xs col-sm col-md-3 col-lg-3">
+                        <div class="wrapper">
+                            <div class="fotorama">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card col-xs col-sm col-md-3 col-lg-3">
+                        <div class="wrapper">
+                            <div class="fotorama">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card col-xs col-sm col-md-3 col-lg-3">
+                        <div class="wrapper">
+                            <div class="fotorama">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                    <div class="card col-xs col-sm col-md-3 col-lg-3">
+                        <div class="wrapper">
+                            <div class="fotorama">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                                <img class="card-img-top" src="./images/property3.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">
+                                Some quick example text to build on the card title and make up the bulk of the card's
+                                content.
+                            </p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        }
+    </div>
+</main>
