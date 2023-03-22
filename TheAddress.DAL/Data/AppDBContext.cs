@@ -14,7 +14,9 @@ namespace TheAddress.DAL.Data
         }
         public DbSet<Property> Properties { get; set; }
         public DbSet<PropertyCategory> PropertyCategories { get; set; }
-        //public DbSet<AdvertCategory> AdvertCategories { get; set; }
+        public DbSet<District> Districts { get; set; }
         public DbSet<PropertyDocument> PropertyDocuments { get; set; }
+        public DbSet<Basket> Baskets { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
     }
 }

@@ -44,7 +44,6 @@
                         </thead>
                         <tbody>
                             @{
-
                                 foreach (var item in Model)
                                 {
                                     <tr>
@@ -58,17 +57,13 @@
                                         <td class="text-center">@item.Floor</td>
                                         <td class="text-center">@item.Area</td>
                                         <td class="text-center">@item.Price</td>
-                                        <td class="text-center d-flex" role="group">
+                                        <td class="text-center d-flex justify-content-center" role="group">
                                             <a asp-controller="Properties" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" aria-current="page">  <i class="bi bi-trash-fill"></i>Sil</a>
                                             <a asp-controller="Properties" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary" aria-current="page"> <i class="bi bi-pencil-square"></i>Dəyiş</a>
                                         </td>
                                     </tr>
                                 }
-
-
                             }
-
-
                         </tbody>
                     </table>
                 </div>

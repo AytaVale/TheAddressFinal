@@ -1,58 +1,66 @@
-﻿@model List<PropertyDto>
+﻿@model DetailViewModel
 
-<link rel="stylesheet" href="~/assets/css/propertypage.css">
+<link rel="stylesheet" href="/img/assets/css/propertypage.css">
 
 <main>
     <div class="container">
-        @foreach (var item in Model)
-        {
+
             <div class="row" style="margin-top: 20px;">
                 <div class="property-photo col-xs col-sm col-md col-lg-8">
                     <div class="fotorama" data-nav="thumbs">
-                        @foreach (var itemm in item.PropertyDocuments)
+                        @foreach (var itemm in Model.PropertyDocument)
                         {
-                            <a href="1.jpg"><img src="/img/@itemm.DocumentUrl" width="144" height="96"></a>
+                            <a href="#">
+                                <img src="/img/@itemm.DocumentUrl" width="144" height="96">
+                                </a>
                         }
                         
                     </div>
                     <div class="property-photo property-content-bottom">
                         <p class="property-content-text">
-                            @item.Description
+                            @Model.Property.Description
                     </div>
                 </div>
                 <div class="property-info col-xs col-sm col-md col-lg-4">
                     <div class="property-info-top d-flex align-center">
-                        <span>
-                            @item.Name
+                        <span style="word-wrap: break-word;">
+                            @Model.Property.Name
                         </span>
                         <div class="favicon">
-                            <a href="#">
-                                <i class="fa-solid fa-heart"></i>
-                            </a>
+                     
+                            <form asp-controller="home" asp-action="addtocart" method="get">
+                                <input type="hidden" name="ids" value="@Model.Property.Id"/>
+                            <button type="submit" class ="basket-btn" style="border: none !important;">
+                                @if(!string.IsNullOrWhiteSpace(ViewBag.color)){
+                                    <i class="fa-solid fa-heart" style="color: rgb(128, 17, 17); font-weight:900;"></i>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-heart"></i>
+                                }
+                                
+                            </button>
+                            </form>
                         </div>
                     </div>
                     <div class="property-info-text">
                         <div class="property-info-item active">
                             <div class="property-info-first">Ünvan:</div>
-                            <div class="property-info-second" style="text-align: right;">@item.Address</div>
+                            <div class="property-info-second" style="text-align: right;">@Model.Property.Address</div>
                         </div>
                         <div class="property-info-item active">
                             <div class="property-info-first">Sahə:</div>
                             <div class="property-info-second" style="text-align: right;">
-                                @item.Area<br>
+                                @Model.Property.Area<br>
                             </div>
                         </div>
                         <div class="property-info-item active">
                             <span class="property-info-first">Mərtəbə:</span>
-                            <div class="property-info-second">@item.Floor</div>
+                            <div class="property-info-second">@Model.Property.Floor</div>
                         </div>
                         <div class="property-info-item active">
                             <div class="property-info-first">Otaq sayı:</div>
-                            <div class="property-info-second">@item.RoomCount</div>
-                        </div>
-                        <div class="property-info-item active">
-                            <div class="property-info-first">Lorem:</div>
-                            <div class="property-info-second">2</div>
+                            <div class="property-info-second">@Model.Property.RoomCount</div>
                         </div>
                         <div class="property-info-item active">
                             <div class="property-info-first">Lorem:</div>
@@ -77,7 +85,7 @@
                             <div class="property-info-second">Var</div>
                         </div>
                         <div class="price d-flex">
-                            <span>@item.Price</span>
+                            <span>@Model.Property.Price</span>
                             <div class="dropdown-price">
                                 <select name="price" id="#">
                                     <option value="AZN" selected>AZN</option>
@@ -88,8 +96,8 @@
                             </div>
                         </div>
                         <div class="inputs">
-                            <input class="toSee" type="submit" value="Təqdimat üçün yazılmaq">
-                            <input class="toCall" type="submit" value="Konsultasiya">
+                        <a asp-controller="contact" asp-action="index" class="toSee">Təqdimat üçün yazılmaq</a>
+                        <a href="https://wa.me/994555551525" class="toCall">Konsultasiya</a>
                         </div>
                     </div>
                 </div>
@@ -107,167 +115,11 @@
             <section class="rated">
                 <h3>
                     Bənzər əmlaklar
-                </h3>
-                <div class="row cards">
-                    <div class="card col-xs col-sm col-md-3 col-lg-3">
-                        <div class="wrapper">
-                            <div class="fotorama">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card col-xs col-sm col-md-3 col-lg-3">
-                        <div class="wrapper">
-                            <div class="fotorama">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card col-xs col-sm col-md-3 col-lg-3">
-                        <div class="wrapper">
-                            <div class="fotorama">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card col-xs col-sm col-md-3 col-lg-3">
-                        <div class="wrapper">
-                            <div class="fotorama">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card col-xs col-sm col-md-3 col-lg-3">
-                        <div class="wrapper">
-                            <div class="fotorama">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
-                    <div class="card col-xs col-sm col-md-3 col-lg-3">
-                        <div class="wrapper">
-                            <div class="fotorama">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                                <img class="card-img-top" src="./images/property3.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card title and make up the bulk of the card's
-                                content.
-                            </p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                            <li class="list-group-item">A second item</li>
-                            <li class="list-group-item">A third item</li>
-                        </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
-                    </div>
+                </h3>              <div class="row cards">
+                @await Component.InvokeAsync("Cart", new{category = Model.Property.PropertyCategoryId, counts = 5})
                 </div>
             </section>
             
-        }
+     
     </div>
 </main>

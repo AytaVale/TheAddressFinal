@@ -3,8 +3,8 @@
         <div class="container">
             <nav role="navigation">
                 <div class="top py-3 text-center border-bottom d-flex">
-                    <a href="homepage.html">
-                        <img src="~/assets/images/logo.png" alt="" class="invert">
+                    <a asp-controller="Home" asp-action="Index">
+                        <img src="/img/assets/images/logo.png" alt="" class="invert">
                     </a>
                     <div class="phone_block d-flex align-center">
                         <div class="phoneSchedule ">
@@ -43,7 +43,7 @@
                     <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mx-auto ">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="all" asp-action="index" asp-route-buy="true">Almaq</a>
@@ -63,18 +63,24 @@
                                     style="width: 95%; text-align: center;">
                                     <li><a class="dropdown-item" href="#">Blog</a></li>
                                     <li><a class="dropdown-item" href="#">About Us</a></li>
-                                    <li><a class="dropdown-item" href="#">Contact us</a></li>
+                                    <li><a class="dropdown-item" asp-controller="contact" asp-action="index">Contact us</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="fav">
-                    <a class="favv" href="#">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <a asp-controller="Basket" asp-action="Index"  class="favv d-flex">
+                        <i class="fa-solid fa-heart" style="margin-top: 7px; padding: 0px 5px;"></i>
+                        @if(!string.IsNullOrWhiteSpace(ViewBag.Counter))
+                        {
+                            <span id="basket-cart" style="color: white; opacity: 0.5;">@ViewBag.Counter</span>
+                        }
+                        else
+                        {
+                            <span id="basket-cart" style="color: white; opacity: 0.5;">0</span>
+                        }
+
                     </a>
                 </div>
             </div>

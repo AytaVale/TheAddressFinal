@@ -4,7 +4,7 @@
     <div class="container">
         <section>
             <div class="row cards">
-                @await Component.InvokeAsync("Cart", new{counts = ViewBag.Count, buy = ViewBag.Buy, rent = ViewBag.Rent});
+                @await Component.InvokeAsync("Cart", new{counts = ViewBag.Count, buy = ViewBag.Buy, rent = ViewBag.Rent, category =  ViewBag.Category, room = ViewBag.Room, region = ViewBag.Region})
             </div>
         </section>
     </div>

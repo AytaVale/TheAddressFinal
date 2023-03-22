@@ -14,10 +14,10 @@ namespace TheAddress.UI.Components
            this.db = db;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int counts = 4, bool buy = false, bool rent = false)
+        public async Task<IViewComponentResult> InvokeAsync(int counts = 6,int id=0, bool buy = false, bool rent = false, int category = 0, bool notHome = false, int room = 0, int region = 0)
         {
             var product = new List<Property>();
-            if(counts > 4)
+            if(counts > 6)
             {
                  product = db.Properties.Include(p => p.PropertyDocuments).ToList();
             }
@@ -25,7 +25,10 @@ namespace TheAddress.UI.Components
             {
                  product = db.Properties.Include(p => p.PropertyDocuments).Take(counts).ToList();
             }
-
+            if (id>0)
+            {
+                product=product.Where(p=>p.Id==id).ToList();
+            }
 
             if(buy == true)
             {
@@ -37,6 +40,22 @@ namespace TheAddress.UI.Components
                 product = product.Where(p => p.Rent == true).ToList();
             }
 
+            if(category > 0) {
+                product = product.Where(p => p.PropertyCategoryId == category).ToList();
+            }
+            if (room > 0)
+            {
+                product = product.Where(p => p.RoomCount == room.ToString()).ToList();
+            }
+            if (region > 0)
+            {
+                product = product.Where(p => p.DistrictId == region).ToList();
+            }
+
+            if(product.Count == 0)
+            {
+                ViewBag.Product = "Axtardığınız parametrlər üzrə əmlak tapılmadı.";
+            }
             return View(product);
         }
     }

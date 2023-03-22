@@ -170,7 +170,9 @@
       #navbarNavDropdown.show .navbar-nav{
         padding:10px;
       }
-
+       .show > li > a:active {
+        background-color: rgb(128, 17, 17);
+        }
       /* carousel */
       .slider{
         height: 750px !important;

@@ -11,6 +11,8 @@ namespace TheAddress.DAL.Dtos
     {
         [DisplayName("Əmlakın adı")]
         public string Name { get; set; }
+        [DisplayName("Rayon")]
+        public int DistrictId { get; set; }
 
         [DisplayName("Ünvan")]
         public string Address { get; set; }
@@ -33,12 +35,12 @@ namespace TheAddress.DAL.Dtos
         [DisplayName("Əmlakın növü")]
         public int PropertyCategoryId { get; set; }
 
+
         [DisplayName("Almaq")]
         public bool Buy { get; set; }
         [DisplayName("Kirayə")]
         public bool Rent { get; set; }
-        //public int AdvertCategoryId { get; set; }
-
+       
 
         [DisplayName("Şəkil")]
         public string? ProfileDocPath { get; set; }
@@ -46,6 +48,6 @@ namespace TheAddress.DAL.Dtos
         public List<PropertyDocumentDto>? PropertyDocuments { get; set; }
 
         public List<PropertyCategoryDto>? PropertyCategoryDtos { get; set; }
-        //public List<AdvertCategoryDto>? AdvertCategoryDtos { get; set; }
+        public List<DistrictDto>? DistrictDtos { get; set; }
     }
 }

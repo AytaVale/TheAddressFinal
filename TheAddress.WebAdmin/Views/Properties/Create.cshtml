@@ -30,9 +30,18 @@
                         </select>
                         <span asp-validation-for="PropertyCategoryId" class="text-danger"></span>
                     </div>
-                </div>
-              
-
+                    </div>
+                  <div class="col-4">
+                    <div class="form-group">
+                        <label asp-for="DistrictId" class="control-label"></label>
+                            <select asp-for="DistrictId"
+                                class="form-control"
+                                asp-items="ViewBag.Region">
+                            <option>Please select one</option>
+                        </select>
+                            <span asp-validation-for="DistrictId" class="text-danger"></span>
+                    </div>
+              </div>
                 <div class="col-4">
                     <div class="form-group">
                         <label asp-for="Address" class="control-label"></label>
@@ -40,7 +49,6 @@
                         <span asp-validation-for="Address" class="text-danger"></span>
                     </div>
                 </div>
-
                 <div class="col-4">
                     <div class="form-group">
                         <label asp-for="RoomCount" class="control-label"></label>
@@ -72,22 +80,8 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label asp-for="Description" class="control-label"></label>
-                        <input asp-for="Description" class="form-control" />
+                       <textarea asp-for="Description" class="form-control"></textarea>
                         <span asp-validation-for="Description" class="text-danger"></span>
-                    </div>
-                </div>
-                  <div class="col-2" style="margin: 30px 0px;">
-                    <div class="form-group" style="display: flex;">
-                        <label asp-for="Buy"></label>
-                        <input asp-for="Buy" style="margin-left: 2%;" type="checkbox"/>
-                        <span asp-validation-for="Buy" class="text-danger"></span>
-                    </div>
-                </div>
-                <div class="col-2" style="margin: 30px 0px;">
-                    <div class="form-group" style="display: flex;">
-                        <label asp-for="Rent"></label>
-                        <input asp-for="Rent" style="margin-left: 2%;" type="checkbox"/>
-                        <span asp-validation-for="Rent" class="text-danger"></span>
                     </div>
                 </div>
                 <div class="col-8">
@@ -99,20 +93,29 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-
+                <div class="col-2" style="margin: 30px 0px;">
+                        <div class="form-group" style="display: flex;">
+                            <label asp-for="Buy"></label>
+                            <input asp-for="Buy" style="margin-left: 2%;" type="checkbox"/>
+                            <span asp-validation-for="Buy" class="text-danger"></span>
+                        </div>
+                </div>
+                    <div class="col-2" style="margin: 30px 0px;">
+                    <div class="form-group" style="display: flex;">
+                            <label asp-for="Rent"></label>
+                        <input asp-for="Rent" style="margin-left: 2%;" type="checkbox"/>
+                            <span asp-validation-for="Rent" class="text-danger"></span>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
                 <div class="col-md-6 control-label">
                     @Html.ActionLink("Geri", "Index", "Properties", null, new { @class = "btn btn-info btn-lg btn-block" })
-
                 </div>
                 <div class="col-md-6 control-label">
                     <input id="frmProduct" type="submit" value="Yarat" class="btn btn-succsess btn-lg btn-block" tabindex="16" />
-
                 </div>
-
             </div>
-
         </form>
 
     </div>

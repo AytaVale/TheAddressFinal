@@ -9,9 +9,9 @@ namespace TheAddress.UI.Components
 
         }
 
-        public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync( int? counter)
         {
-          
+            ViewBag.Counter = counter.ToString();
             return View();
         }
     }

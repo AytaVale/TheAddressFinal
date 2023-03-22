@@ -11,7 +11,6 @@
 
             <div class="row">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
                 <div class="col-12">
                     <div class="form-group">
                         <label asp-for="Name" class="control-label"></label>
@@ -22,16 +21,12 @@
 
             </div>
             <div class="row">
-
-                <div class="col-md-6 control-label">
-                    @Html.ActionLink("Geri", "Index", "PropertyCategories", null, new { @class = "btn btn-info btn-lg btn-block" })
-
-                </div>
                 <div class="col-md-6 control-label">
                     <input id="frmProductCat" type="submit" value="Sil" class="btn btn-danger btn-lg btn-block" tabindex="16" />
-
                 </div>
-
+                <div class="col-md-6 control-label">
+                    @Html.ActionLink("Geri", "Index", "PropertyCategories", null, new { @class = "btn btn-info btn-lg btn-block" })
+                </div>
             </div>
 
         </form>

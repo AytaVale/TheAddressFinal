@@ -231,6 +231,96 @@ namespace TheAddress.DAL.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("TheAddress.DAL.DBModel.Basket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PropertyId");
+
+                    b.ToTable("Baskets");
+                });
+
+            modelBuilder.Entity("TheAddress.DAL.DBModel.Contact", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Contacts");
+                });
+
+            modelBuilder.Entity("TheAddress.DAL.DBModel.District", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Districts");
+                });
+
             modelBuilder.Entity("TheAddress.DAL.DBModel.Property", b =>
                 {
                     b.Property<int>("Id")
@@ -252,6 +342,9 @@ namespace TheAddress.DAL.Migrations
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("DistrictId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Floor")
                         .IsRequired()
@@ -288,6 +381,8 @@ namespace TheAddress.DAL.Migrations
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("DistrictId");
 
                     b.HasIndex("PropertyCategoryId");
 
@@ -402,13 +497,30 @@ namespace TheAddress.DAL.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TheAddress.DAL.DBModel.Basket", b =>
+                {
+                    b.HasOne("TheAddress.DAL.DBModel.Property", "Property")
+                        .WithMany()
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Property");
+                });
+
             modelBuilder.Entity("TheAddress.DAL.DBModel.Property", b =>
                 {
+                    b.HasOne("TheAddress.DAL.DBModel.District", "District")
+                        .WithMany("Properties")
+                        .HasForeignKey("DistrictId");
+
                     b.HasOne("TheAddress.DAL.DBModel.PropertyCategory", "PropertyCategory")
                         .WithMany("Properties")
                         .HasForeignKey("PropertyCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("District");
 
                     b.Navigation("PropertyCategory");
                 });
@@ -422,6 +534,11 @@ namespace TheAddress.DAL.Migrations
                         .IsRequired();
 
                     b.Navigation("Property");
+                });
+
+            modelBuilder.Entity("TheAddress.DAL.DBModel.District", b =>
+                {
+                    b.Navigation("Properties");
                 });
 
             modelBuilder.Entity("TheAddress.DAL.DBModel.Property", b =>

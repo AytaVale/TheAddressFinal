@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Basket>
+
+<div class="container">
+    <section>
+        <div class="row cards">
+            @foreach(var item in Model){
+                @await Component.InvokeAsync("Cart", new {id = item.PropertyId, counts=7})
+            }
+
+    </div>
+        </section>
+    </div>

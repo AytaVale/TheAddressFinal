@@ -12,12 +12,12 @@
           integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/assets/css/homepage.css">
+    <link rel="stylesheet" href="/img/assets/css/homepage.css">
     <title>TheAddress-Homepage</title>
 </head>
 
 <body>
-       @await Component.InvokeAsync("Header");
+       @await Component.InvokeAsync("Header",  new {counter=ViewBag.Countt});
        @RenderBody()
 
 
@@ -29,7 +29,27 @@
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
-    <script src="~/assets/js/main.js"></script>
+    <script src="/img/assets/js/main.js"></script>
+    <script>
+        $('.basket-btn').click(function (z) {
+            z.preventDefault();
+            var id = $(this).data('id');
+
+            $.ajax({
+                type: 'Get',
+                url: `/Home/AddToCart/${id}`,
+                success: function (response) {
+                    if (response.error == false) {
+
+                        var txt = $('#basket-cart').text();
+                        var txt = parseInt(txt);
+                        txt = txt + 1;
+                        $('#basket-cart').text(txt);
+                }
+            });
+        })
+    </script>
+
 </body>
 
 </html>

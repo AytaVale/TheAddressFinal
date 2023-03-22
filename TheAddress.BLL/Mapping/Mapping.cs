@@ -16,6 +16,7 @@ namespace TheAddress.BLL.Mapping
             CreateMap<PropertyCategory, PropertyCategoryDto>().ReverseMap();
             CreateMap<Property, PropertyDto>().ReverseMap();
             CreateMap<PropertyDocument, PropertyDocumentDto>().ReverseMap();
+            CreateMap<District, DistrictDto>().ReverseMap();
         }
     }
 }

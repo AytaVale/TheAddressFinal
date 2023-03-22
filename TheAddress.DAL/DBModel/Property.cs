@@ -16,14 +16,13 @@ namespace TheAddress.DAL.DBModel
         public string Floor { get; set; }
         public decimal Price { get; set; }
         public int PropertyCategoryId { get; set; }
-        //public PropertyCategory AdvertCategory { get; set; }
-        //public int AdvertCategoryId { get; set; }
         public PropertyCategory PropertyCategory { get; set; }
+        public int? DistrictId { get; set; }
+        public District? District { get; set; }
 
         public bool? Buy { get; set; }
         public bool? Rent { get; set; }
         public string ProfileDocPath { get; set; }
-
 
         public virtual ICollection<PropertyDocument> PropertyDocuments { get; set; }
     }

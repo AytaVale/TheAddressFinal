@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TheAddress.BLL.Services.Interfaces;
+using TheAddress.DAL.Data;
 using TheAddress.DAL.Dtos;
 
 namespace TheAddress.WebAdmin.Controllers
@@ -8,16 +9,18 @@ namespace TheAddress.WebAdmin.Controllers
     public class PropertiesController : Controller
     {
         private readonly IPropertyService _service;
+        private readonly AppDBContext db;
         [Obsolete]
         private readonly Microsoft.AspNetCore.Hosting.IHostingEnvironment _hostingEnvironment;
         private readonly ILogger<PropertiesController> _logger;
 
         [Obsolete]
-        public PropertiesController(IPropertyService service, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, ILogger<PropertiesController> logger)
+        public PropertiesController(AppDBContext db, IPropertyService service, Microsoft.AspNetCore.Hosting.IHostingEnvironment hostingEnvironment, ILogger<PropertiesController> logger)
         {
             _service = service;
             _logger = logger;
             _hostingEnvironment = hostingEnvironment;
+            this.db = db;
         }
         public async Task<IActionResult> Index()
         {
@@ -28,6 +31,8 @@ namespace TheAddress.WebAdmin.Controllers
         public async Task<IActionResult> Create()
         {
             ViewBag.PropertyCategory = new SelectList(await _service.GetCategoriesAsync(), "Id", "Name");
+            ViewBag.Region = new SelectList(db.Districts.ToList(), "Id", "Name");
+
             PropertyDto model = new()
             {
                 PropertyCategoryDtos = await _service.GetCategoriesAsync()
@@ -39,7 +44,7 @@ namespace TheAddress.WebAdmin.Controllers
         public async Task<IActionResult> Create(PropertyDto itemDto, List<IFormFile> files)
         {
             ViewBag.PropertyCategory = new SelectList(await _service.GetCategoriesAsync(), "Id", "Name");
-
+            ViewBag.Region = new SelectList(db.Districts.ToList(), "Id", "Name");
             if (ModelState.IsValid)
             {
 
@@ -87,6 +92,7 @@ namespace TheAddress.WebAdmin.Controllers
         public async Task<IActionResult> Update(int? id)
         {
             ViewBag.PropertyCategory = new SelectList(await _service.GetCategoriesAsync(), "Id", "Name");
+            ViewBag.Region = new SelectList(db.Districts.ToList(), "Id", "Name");
             if (id == null)
             {
                 _logger.LogError("Sıfır gəlidiyi üçün xəta baş verdi");
@@ -115,8 +121,10 @@ namespace TheAddress.WebAdmin.Controllers
                 Area = property.Area,
                 PropertyCategoryId = property.PropertyCategoryId,
                 PropertyCategoryDtos = await _service.GetCategoriesAsync(),
-                Buy=property.Buy,
-                Rent=property.Rent,
+                DistrictId = property.DistrictId,
+                DistrictDtos = property.DistrictDtos,
+                Buy = property.Buy,
+                Rent = property.Rent,
                 PropertyDocuments = property.PropertyDocuments,
                 ProfileDocPath = property.ProfileDocPath
             };
@@ -129,6 +137,7 @@ namespace TheAddress.WebAdmin.Controllers
         public async Task<IActionResult> Update(int id, PropertyDto itemDto, List<IFormFile> files)
         {
             ViewBag.PropertyCategory = new SelectList(await _service.GetCategoriesAsync(), "Id", "Name");
+            ViewBag.Region = new SelectList(db.Districts.ToList(), "Id", "Name");
             if (id != itemDto.Id)
             {
                 _logger.LogInformation($"Sistemdə olmayan {id} N-li Id çağrılmışdır");
