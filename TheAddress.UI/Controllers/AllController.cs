@@ -11,8 +11,10 @@ namespace TheAddress.UI.Controllers
         {
             this.db = db;
         }
-        public IActionResult Index(int count = 5, bool buy = false, bool rent = false, int categoryId = 0, FilterFormModel fm = null)
+        public IActionResult Index(int count = 7, bool buy = false, bool rent = false, int categoryId = 0, int min = 0, int max=0, int region=0, int roomCount=0, AllViewModel fm = null)
         {
+            var vm = new AllViewModel();
+            vm.FilterForm = fm.FilterForm;
             var cookieOptions = new CookieOptions();
             cookieOptions.Expires = DateTime.Now.AddDays(2000);
             cookieOptions.Path = "/";
@@ -29,14 +31,23 @@ namespace TheAddress.UI.Controllers
             ViewBag.Buy = buy;
             ViewBag.Rent = rent;
             ViewBag.Category = categoryId;
+            ViewBag.Min = min;
+            ViewBag.Max = max;
+            ViewBag.Region = region;
+            ViewBag.Room = roomCount;
 
-            if(fm.CategoryId > 0)
+            if (vm.FilterForm!=null)
             {
-                ViewBag.Category = fm.CategoryId;
+                ViewBag.Category = vm.FilterForm.CategoryId;
+                ViewBag.Min = vm.FilterForm.Min;
+                ViewBag.Max = vm.FilterForm.Max;
+                ViewBag.Region = vm.FilterForm.Region;
+                ViewBag.Room = vm.FilterForm.Roomcount;
             }
-            ViewBag.Room = fm.Roomcount;
-            ViewBag.Region = fm.Region;
-            return View();
+
+            vm.Categories = db.PropertyCategories.ToList();
+            vm.Districts = db.Districts.ToList();
+            return View(vm);
         }
     }
 }

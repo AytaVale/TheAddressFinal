@@ -1,6 +1,10 @@
 ﻿
 @model FilterFormModel
+@section addcss{
+
+}
 <main>
+
     <!-- Carousel -->
     <div class="container-fluid">
         <div class="slider">
@@ -35,24 +39,23 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="row">
-                             
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                         <select class="form-control search-slt" id="exampleFormControlSelect1" asp-for="CategoryId" asp-items="ViewBag.Category">
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                        <select class="form-control search-slt" id="exampleFormControlSelect1" asp-for="Roomcount">
-                                            <option value="1">1 otaq</option>
-                                                <option value="2">2 otaq</option>
-                                                <option value="3">3 otaq</option>
-                                                <option value="4">4 otaq</option>
-                                                <option value="5">5 otaq</option>
-                                                <option value="6">6 otaq</option>
-                                                <option value="7">7 otaq</option>
+                                        <select class="form-control search-slt" id="exampleFormControlSelect2" asp-for="Roomcount">
+                                                <option class="hoverc" value="1">1 otaq</option>
+                                                <option  class="hoverc" value="2">2 otaq</option>
+                                                <option  class="hoverc" value="3">3 otaq</option>
+                                                <option  class="hoverc" value="4">4 otaq</option>
+                                                <option  class="hoverc" value="5">5 otaq</option>
+                                                <option  class="hoverc" value="6">6 otaq</option>
+                                                <option  class="hoverc" value="7">7 otaq</option>
                                         </select>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                            <select class="form-control search-slt" id="exampleFormControlSelect1" asp-for="Region" asp-items="ViewBag.Region"></select>
+                                            <select class="form-control search-slt" id="exampleFormControlSelect3" asp-for="Region" asp-items="ViewBag.Region"></select>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12 p-0">
                                         <input type="submit" class="btn wrn-btn" value="Axtar"/>
@@ -82,48 +85,8 @@
         <!-- Cards of categories -->
        <section class="category-section">
             <div class="card-grid">
-                <a class="card2" href="#">
-                    <div class="card__background" style="background: url(/img/assets/images/property1.jpg); background-size: cover;">
-                    </div>
-                    <div class="card__content">
-                        <h3 class="card__heading">Mənzil</h3>
-                    </div>
-                </a>
-                    <a class="card2" href="#">
-                        <div class="card__background" style="background: url(/img/assets/images/property1.jpg); background-size: cover;">
-                        </div>
-                        <div class="card__content">
-                            <h3 class="card__heading">Bağ evi</h3>
-                        </div>
-                    </a>
-                    <a class="card2" href="#">
-                        <div class="card__background" style="background: url(/img/assets/images/property1.jpg); background-size: cover;">
-                        </div>
-                        <div class="card__content">
-                            <h3 class="card__heading">Yeni tikili</h3>
-                        </div>
-                    </a>
-                    <a class="card2" href="#">
-                        <div class="card__background" style="background: url(/img/assets/images/property1.jpg); background-size: cover;">
-                        </div>
-                        <div class="card__content">
-                            <h3 class="card__heading">Obyekt</h3>
-                        </div>
-                    </a>
-                    <a class="card2" href="#">
-                        <div class="card__background" style="background: url(/img/assets/images/property1.jpg); background-size: cover;">
-                        </div>
-                        <div class="card__content">
-                            <h3 class="card__heading">Lorem</h3>
-                        </div>
-                    </a>
-                    <a class="card2" href="#">
-                        <div class="card__background" style="background: url(/img/assets/images/property1.jpg); background-size: cover;">
-                        </div>
-                        <div class="card__content">
-                            <h3 class="card__heading">Lorem</h3>
-                        </div>
-                    </a>
+                
+                  @await Component.InvokeAsync("Category")
                     <div>
                         </div>
                         </div>

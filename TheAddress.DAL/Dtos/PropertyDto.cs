@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheAddress.DAL.DBModel;
 
 namespace TheAddress.DAL.Dtos
 {
@@ -28,6 +30,8 @@ namespace TheAddress.DAL.Dtos
 
         [DisplayName("Mərtəbə")]
         public string Floor { get; set; }
+        [DisplayName("Ünvan")]
+        public string Location { get; set; }
 
         [DisplayName("Qiyməti")]
         public decimal Price { get; set; }

@@ -1,10 +1,76 @@
-﻿<main>
+﻿@model AllViewModel;
+<link rel="stylesheet" href="/img/assets/css/allproperties.css">
+
+<main>
     <!-- filter -->
+
+    <div class="container subfilter">
+        <form asp-action="index" method="get" novalidate="novalidate">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-12 col-sm-12 p-0">
+                            <select asp-for="FilterForm.CategoryId" class="form-control search-slt" id="exampleFormControlSelect1">
+                                <option selected disabled">Mənzil</option>
+                                @foreach(var item in Model.Categories)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-lg-2 col-md-12 col-sm-12 p-0">
+                            <select asp-for="FilterForm.Region" class="form-control search-slt" id="exampleFormControlSelect2">
+                                <option selected disabled">Rayon</option>
+                                @foreach (var item in Model.Districts)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+                            <div class="form-control search-slt filter">
+                                <div class="price-wrap">
+                                    <span class="price-title">Qiymət:</span>
+                                    <div class="price-wrap-1" style="margin-left: -30px;">
+                                        <input id="one">
+                                        <label for="one">AZN</label>
+                                    </div>
+                                    <div class="price-wrap_line">-</div>
+                                    <div class="price-wrap-2">
+                                        <input id="two">
+                                        <label for="two">AZN</label>
+                                    </div>
+                                </div>
+                                <div class="price-field">
+                                    <input asp-for="FilterForm.Min" type="range" min="0" max="1000000" value="0" id="lower" disabled>
+                                    <input asp-for="FilterForm.Max" type="range" min="0" max="1000000" value="1000000" id="upper">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-12 col-sm-12 p-0">
+                            <div class="form-control search-slt" style="display:flex; align-items:center;justify-content: center;
+}">
+                                <div class="filter-titlee">
+                                    <span>Otaq sayı:</span>
+                                </div>
+                                <div class="filter-rooms-list">
+                                    <input asp-for="FilterForm.Roomcount" min="1" class="" type="number" aria-labelledby="1" style="border-color: #00000021;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-12 col-sm-12 p-0">
+                            <button type="submit" class="btn wrn-btn">Axtar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
     <!-- cards -->
     <div class="container">
         <section>
             <div class="row cards">
-                @await Component.InvokeAsync("Cart", new{counts = ViewBag.Count, buy = ViewBag.Buy, rent = ViewBag.Rent, category =  ViewBag.Category, room = ViewBag.Room, region = ViewBag.Region})
+                @await Component.InvokeAsync("Cart", new{counts = ViewBag.Count, buy = ViewBag.Buy, rent = ViewBag.Rent, category =  ViewBag.Category, room = ViewBag.Room, region = ViewBag.Region, min=ViewBag.Min, max=ViewBag.Max})
             </div>
         </section>
     </div>

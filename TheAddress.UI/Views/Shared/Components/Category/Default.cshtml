@@ -1,0 +1,11 @@
+﻿@model IEnumerable<PropertyCategory>
+
+    @foreach(var item in Model){
+    <a class="card2" asp-controller="all" asp-action="index" asp-route-categoryId="@item.Id">
+                            <div class="card__background" style="background: url(img/@item.Properties.FirstOrDefault(p=>p.PropertyCategoryId == item.Id).ProfileDocPath); background-size: cover;">
+                            </div>
+                            <div class="card__content">
+                                <h3 class="card__heading"> @item.Name</h3>
+                            </div>
+                        </a>
+    }

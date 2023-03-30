@@ -23,6 +23,7 @@ namespace TheAddress.DAL.DBModel
         public bool? Buy { get; set; }
         public bool? Rent { get; set; }
         public string ProfileDocPath { get; set; }
+        public string Location { get; set; }
 
         public virtual ICollection<PropertyDocument> PropertyDocuments { get; set; }
     }

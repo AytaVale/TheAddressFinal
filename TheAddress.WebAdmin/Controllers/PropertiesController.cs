@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using TheAddress.BLL.Services.Interfaces;
 using TheAddress.DAL.Data;
 using TheAddress.DAL.Dtos;
@@ -24,8 +25,8 @@ namespace TheAddress.WebAdmin.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var properties = await _service.GetListAsync();
-            return View(properties);
+            //var properties = await _service.GetListAsync();
+            return View(await db.Properties.Include(x => x.PropertyCategory).ToListAsync());
         }
         [HttpGet]
         public async Task<IActionResult> Create()

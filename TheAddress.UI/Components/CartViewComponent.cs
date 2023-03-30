@@ -14,7 +14,7 @@ namespace TheAddress.UI.Components
            this.db = db;
         }
 
-        public async Task<IViewComponentResult> InvokeAsync(int counts = 6,int id=0, bool buy = false, bool rent = false, int category = 0, bool notHome = false, int room = 0, int region = 0)
+        public async Task<IViewComponentResult> InvokeAsync(int counts = 6,int id=0, bool buy = false, bool rent = false, int category = 0, bool notHome = false, int room = 0, int region = 0, int min = 0, int max = 0)
         {
             var product = new List<Property>();
             if(counts > 6)

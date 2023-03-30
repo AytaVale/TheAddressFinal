@@ -84,6 +84,13 @@
                         <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                 </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label asp-for="Location" class="control-label"></label>
+                        <textarea asp-for="Location" class="form-control"></textarea>
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
                 <div class="col-8">
                     <div class="col-4">
                         <div class="form-group">
@@ -93,6 +100,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-2" style="margin: 30px 0px;">
                         <div class="form-group" style="display: flex;">
                             <label asp-for="Buy"></label>

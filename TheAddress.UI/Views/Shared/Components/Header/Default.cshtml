@@ -43,27 +43,25 @@
                     <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mx-auto ">
                             <li class="nav-item">
-                                <a class="nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link active" asp-controller="Home" asp-action="Index">Əsas səhifə</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" asp-controller="all" asp-action="index" asp-route-buy="true">Almaq</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Satmaq</a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" asp-controller="all" asp-action="index" asp-route-rent="true">Kirayə</a>
                             </li>
+                            
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Company
+                                    Ətraflı
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
                                     style="width: 95%; text-align: center;">
-                                    <li><a class="dropdown-item" href="#">Blog</a></li>
-                                    <li><a class="dropdown-item" href="#">About Us</a></li>
-                                    <li><a class="dropdown-item" asp-controller="contact" asp-action="index">Contact us</a></li>
+                                    <li><a class="dropdown-item" asp-controller="about" asp-action="index">Haqqımızda</a></li>
+                                    <li><a class="dropdown-item" asp-controller="contact" asp-action="index">Konsultasiya</a></li>
+                                    <li><a class="dropdown-item" asp-controller="packages" asp-action="index">Tariflər</a></li>
                                 </ul>
                             </li>
                         </ul>

@@ -34,6 +34,7 @@ namespace TheAddress.UI.Controllers
             ViewBag.Region = new SelectList(db.Districts.ToList(), "Id", "Name");
             ViewBag.Category = new SelectList(db.PropertyCategories.ToList(), "Id", "Name");
             TempData["contact"] = contact;
+
             return View();
         }
 

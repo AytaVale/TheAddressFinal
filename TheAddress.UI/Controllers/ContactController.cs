@@ -11,15 +11,11 @@ namespace TheAddress.UI.Controllers
         {
             this.db = db;
         }
-        public IActionResult Index()
-        {
-            return View();
-        }
-        [HttpPost]
         public IActionResult Index(Contact contacts)
         {
             TempData["contact"] = contacts;
             return View();
         }
+
     }
 }

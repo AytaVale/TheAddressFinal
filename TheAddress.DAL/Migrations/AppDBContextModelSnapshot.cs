@@ -353,6 +353,10 @@ namespace TheAddress.DAL.Migrations
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

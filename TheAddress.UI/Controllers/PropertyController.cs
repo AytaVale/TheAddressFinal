@@ -30,7 +30,7 @@ namespace TheAddress.UI.Controllers
             var countt = _service.Baskets.Where(p => p.UserId == value).Count();
             ViewBag.Countt = countt;
             var vm = new DetailViewModel();
-            vm.Property = _service.Properties.Include(p => p.PropertyCategory).FirstOrDefault(p => p.Id == id);
+            vm.Property = _service.Properties.Include(p => p.PropertyCategory).Include(p=>p.District).FirstOrDefault(p => p.Id == id);
             vm.PropertyDocument = _service.PropertyDocuments.Where(p => p.PropertyId == id).ToList();
             var basket=_service.Baskets.FirstOrDefault(p => p.UserId == value && p.PropertyId==vm.Property.Id);
             if (basket !=null)

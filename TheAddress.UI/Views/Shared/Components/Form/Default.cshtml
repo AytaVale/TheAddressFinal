@@ -12,11 +12,6 @@
                         </h5>
                     </div>
                     <div class="wForm col-xs col-sm col-md-8 col-lg-8">
-                        @if (!string.IsNullOrWhiteSpace(ViewBag.msg))
-                        {
-                            <div class="col-md-12" style="color: white;">@ViewBag.msg</div>
-
-                        }
                         <p class="c-white" style="margin-top: 2%;">
                             <span class="s-35 d-block">Adınızı və əlaqə nömrənizi qeyd edin</span>
                             <span class="s-16">bizim əməkdaşlar sizə köməklik göstərsin!</span>
@@ -25,7 +20,17 @@
                             <input type="text" asp-for="Name" id="name" placeholder="Adınız" required="required" data-validation-required-message="Zəhmət olmasa adınızı daxil edin"><br>
                             <input type="tel" asp-for="Phone" id="telephone" placeholder="Mobil nömrə" required="required" data-validation-required-message="Zəhmət olmasa mobil nömrə daxil edin"><br>
                             <input type="email" asp-for="Email" id="email" placeholder="Email" required="required" data-validation-required-message="Zəhmət olmasa Email daxil edin"><br><br>
-                            <input type="submit" value="Göndər" class="submit">
+                            
+                            @if (!string.IsNullOrWhiteSpace(ViewBag.msg))
+                            {
+                                <input type="submit" value="@ViewBag.msg" class="submit message-1">
+                                <input type="submit" value="Göndər" class="submit message-2" style="display:none;">
+                            }
+                            else
+                            {
+                                <input type="submit" value="Göndər" class="submit message-2">
+                            }
+
                         </form>
                     </div>
                 </div>

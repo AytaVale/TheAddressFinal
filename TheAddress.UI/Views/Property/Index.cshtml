@@ -43,14 +43,36 @@
                             </form>
                         </div>
                     </div>
-                    <div class="property-info-text">
+                <div class="property-info-text">
+                    <div class="property-info-item active">
+                        <div class="property-info-first">Əmlakın növü:</div>
+                        <div class="property-info-second" style="text-align: right;">@Model.Property.PropertyCategory.Name</div>
+                    </div>
+                        <div class="property-info-item active">
+                            <div class="property-info-first">Rayon:</div>
+                            <div class="property-info-second">@Model.Property.District.Name</div>
+                        </div>
+                        @if(Model.Property.Buy==true)
+                        {
+                                <div class="property-info-item active">
+                                    <div class="property-info-first">Elan növü:</div>
+                                    <div class="property-info-second">Satış</div>
+                                </div>
+                        }
+                         @if(Model.Property.Rent==true)
+                        {
+                                <div class="property-info-item active">
+                                    <div class="property-info-first">Elan növü:</div>
+                                    <div class="property-info-second">Kirayə</div>
+                                </div>
+                        }
                         <div class="property-info-item active">
                             <div class="property-info-first">Ünvan:</div>
-                            <div class="property-info-second" style="text-align: right;">@Model.Property.Address</div>
+                            <div class="property-info-second">@Model.Property.Address</div>
                         </div>
                         <div class="property-info-item active">
                             <div class="property-info-first">Sahə:</div>
-                            <div class="property-info-second" style="text-align: right;">
+                            <div class="property-info-second">
                                 @Model.Property.Area<br>
                             </div>
                         </div>
@@ -62,28 +84,7 @@
                             <div class="property-info-first">Otaq sayı:</div>
                             <div class="property-info-second">@Model.Property.RoomCount</div>
                         </div>
-                        <div class="property-info-item active">
-                            <div class="property-info-first">Lorem:</div>
-                            <div class="property-info-second">2</div>
-                        </div>
-                        <div class="property-info-item active">
-                            <div class="property-info-first">Lorem:</div>
-                            <div class="property-info-second">00</div>
-                        </div>
-                        <div class="property-info-item active">
-                            <div class="property-info-first">Lorem, ipsum:</div>
-                            <div class="property-info-second">9999</div>
-                        </div>
-                        <div class="property-info-item active">
-                            <div class="property-info-first">Lorem:</div>
-                            <div class="property-info-second" style="text-align: right;">
-                                Lorem ipsum dolor sit amet.
-                            </div>
-                        </div>
-                        <div class="property-info-item active">
-                            <div class="property-info-first">Lift:</div>
-                            <div class="property-info-second">Var</div>
-                        </div>
+                       
                         <div class="price d-flex">
                             <span>@Model.Property.Price</span>
                             <div class="dropdown-price">
@@ -105,10 +106,8 @@
             <!-- map -->
             <section>
                 <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.4283503015417!2d49.85172681569148!3d40.377198065966176!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d077c61fef3%3A0xfa4594c97092ca01!2sAF%20Business%20House!5e0!3m2!1sen!2saz!4v1677842043976!5m2!1sen!2saz"
-                        width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                    @Html.Raw(Model.Property.Location)
+                   </div>
             </section>
 
             <!-- rated -->
