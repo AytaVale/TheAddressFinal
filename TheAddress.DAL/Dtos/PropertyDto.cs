@@ -30,7 +30,7 @@ namespace TheAddress.DAL.Dtos
 
         [DisplayName("Mərtəbə")]
         public string Floor { get; set; }
-        [DisplayName("Ünvan")]
+        [DisplayName("Google Map")]
         public string Location { get; set; }
 
         [DisplayName("Qiyməti")]
@@ -40,7 +40,7 @@ namespace TheAddress.DAL.Dtos
         public int PropertyCategoryId { get; set; }
 
 
-        [DisplayName("Almaq")]
+        [DisplayName("Satmaq")]
         public bool Buy { get; set; }
         [DisplayName("Kirayə")]
         public bool Rent { get; set; }

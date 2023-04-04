@@ -12,16 +12,20 @@
     align-items: center;
     margin-top: 40px;
 }
-.banner-inner{
+
+.banner-inner {
+    margin-left: 20px;
     text-align: justify;
 }
-.banner-title{
+
+.banner-title {
     font-size: 34px;
     font-weight: 700;
     line-height: 1.32;
     color: #cba125;
 }
-.banner-text{
+
+.banner-text {
     color: rgb(70 82 78 / 85%);
     font-size: 18px;
     font-weight: 500;
@@ -36,25 +40,33 @@
     margin-top: 20px;
     margin-bottom: 50px;
 }
-.packages-price-inner{
+
+.packages-price-inner {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
-.packages-price-title{
+
+.packages-price-title {
     font-size: 28px;
     line-height: 1.3;
     font-weight: 600;
     color: white;
 }
-.packages-price-subtitle{
+
+.packages-price-subtitle {
     font-size: 22px;
     line-height: 1.3;
     font-weight: 500;
     color: white;
     margin-top: 23px;
 }
-.detail-list-item{
+
+.packages-price-details {
+    position: relative;
+}
+
+.detail-list-item {
     font-size: 20px;
     font-weight: 500;
     line-height: 1.65;
@@ -63,6 +75,29 @@
     position: relative;
     list-style: none;
 }
+
+.detail-list li {
+    position: relative;
+}
+
+    .detail-list li:before {
+        content: "\f058";
+        position: absolute;
+        left: 0;
+        top: 0px;
+        display: block;
+        font-size: 18px;
+        padding: 0px;
+        color: rgb(128, 17, 17);
+        font-weight: 600;
+        -webkit-font-smoothing: antialiased;
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        line-height: 1.6;
+        font-family: "Font Awesome 5 Free";
+    }
+
 .packages-price-footer {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -82,7 +117,7 @@
     padding: 10px;
 }
 
-.packages-price-footer>a {
+.packages-price-footer > a {
     background-color: rgb(128, 17, 17);
     color: white;
     display: flex;

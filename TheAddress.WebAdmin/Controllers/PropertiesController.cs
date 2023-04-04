@@ -126,6 +126,7 @@ namespace TheAddress.WebAdmin.Controllers
                 DistrictDtos = property.DistrictDtos,
                 Buy = property.Buy,
                 Rent = property.Rent,
+                Location = property.Location,
                 PropertyDocuments = property.PropertyDocuments,
                 ProfileDocPath = property.ProfileDocPath
             };
@@ -139,11 +140,11 @@ namespace TheAddress.WebAdmin.Controllers
         {
             ViewBag.PropertyCategory = new SelectList(await _service.GetCategoriesAsync(), "Id", "Name");
             ViewBag.Region = new SelectList(db.Districts.ToList(), "Id", "Name");
-            if (id != itemDto.Id)
-            {
-                _logger.LogInformation($"Sistemdə olmayan {id} N-li Id çağrılmışdır");
-                return NotFound();
-            }
+            //if (id != itemDto.Id)
+            //{
+            //    _logger.LogInformation($"Sistemdə olmayan {id} N-li Id çağrılmışdır");
+            //    return NotFound();
+            //}
 
             if (ModelState.IsValid)
             {

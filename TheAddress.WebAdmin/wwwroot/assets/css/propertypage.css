@@ -52,6 +52,7 @@
 .property-info-text {
     padding: 10px;
     margin-top: 20px;
+    line-height: 2;
 }
 
 .property-info-item.active {
@@ -81,9 +82,12 @@
     }
 
 .property-content-text {
-    margin: 20px 0px;
+    margin-top: 20px;
+    margin: 40px 0px;
     color: white;
     text-align: justify;
+    line-height: 2;
+    font-size: 19px
 }
 
     .property-content-text > p {

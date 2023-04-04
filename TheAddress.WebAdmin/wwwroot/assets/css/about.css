@@ -1,179 +1,181 @@
 a:hover,
-a:active{
+a:active {
     color: white;
 }
-.about-2{
+
+.about-2 {
     margin-top: 50px;
 }
-.titlee{
-position:relative;
-z-index: 1;
-margin-bottom:60px;
+
+.titlee {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 60px;
 }
 
-.titlee .title{
-position: relative;
-display: block;
-font-size: 18px;
-line-height: 24px;
-color: rgb(128, 17, 17);
-font-weight: 500;
-margin-bottom: 15px;
-}
+    .titlee .title {
+        position: relative;
+        display: block;
+        font-size: 18px;
+        line-height: 24px;
+        color: rgb(128, 17, 17);
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
 
-.titlee h2{
-position: relative;
-display: block;
-font-size:40px;
-line-height: 1.28em;
-color: white;
-font-weight: 600;
-padding-bottom:18px;
-}
+    .titlee h2 {
+        position: relative;
+        display: block;
+        font-size: 40px;
+        line-height: 1.28em;
+        color: white;
+        font-weight: 600;
+        padding-bottom: 18px;
+    }
 
-.titlee h2:before{
-position:absolute;
-content:'';
-left:0px;
-bottom:0px;
-width:50px;
-height:3px;
-background-color:#d1d2d6;
-}
+        .titlee h2:before {
+            position: absolute;
+            content: '';
+            left: 0px;
+            bottom: 0px;
+            width: 50px;
+            height: 3px;
+            background-color: #d1d2d6;
+        }
 
-.titlee .about-text{
-position: relative;
-font-size: 16px;
-line-height: 26px;
-color: white;
-font-weight: 400;
-margin-top: 35px;
+    .titlee .about-text {
+        position: relative;
+        font-size: 16px;
+        line-height: 26px;
+        color: white;
+        font-weight: 400;
+        margin-top: 35px;
+    }
 
-}
-.about-text{
+.about-text {
     text-align: justify;
 }
 
-.titlee.light h2{
-color: #ffffff;
+.titlee.light h2 {
+    color: #ffffff;
 }
 
-.titlee.about-text-center h2:before{
-left:50%;
-margin-left: -25px;
+.titlee.about-text-center h2:before {
+    left: 50%;
+    margin-left: -25px;
 }
 
-.list-style-one{
-position:relative;
+.list-style-one {
+    position: relative;
 }
 
-.list-style-one li{
-position:relative;
-font-size:16px;
-line-height:26px;
-color: white;
-font-weight:400;
-padding-left:35px;
-margin-bottom: 12px;
+    .list-style-one li {
+        position: relative;
+        font-size: 16px;
+        line-height: 26px;
+        color: white;
+        font-weight: 400;
+        padding-left: 35px;
+        margin-bottom: 12px;
+    }
+
+        .list-style-one li:before {
+            content: "\f058";
+            position: absolute;
+            left: 0;
+            top: 0px;
+            display: block;
+            font-size: 18px;
+            padding: 0px;
+            color: rgb(128, 17, 17);
+            font-weight: 600;
+            -webkit-font-smoothing: antialiased;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1.6;
+            font-family: "Font Awesome 5 Free";
+        }
+
+.btn-one {
+    position: relative;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 30px;
+    color: #ffffff;
+    padding: 10px 30px;
+    font-weight: 600;
+    overflow: hidden;
+    letter-spacing: 0.02em;
+    background-color: rgb(128, 17, 17);
 }
 
-.list-style-one li:before {
-content: "\f058";
-position: absolute;
-left: 0;
-top: 0px;
-display: block;
-font-size: 18px;
-padding: 0px;
-color: rgb(128, 17, 17);
-font-weight: 600;
--moz-font-smoothing: grayscale;
--webkit-font-smoothing: antialiased;
-font-style: normal;
-font-variant: normal;
-text-rendering: auto;
-line-height: 1.6;
-font-family: "Font Awesome 5 Free";
-}
-.btn-one{
-position: relative;
-display: inline-block;
-font-size: 17px;
-line-height: 30px;
-color: #ffffff;
-padding: 10px 30px;
-font-weight: 600;
-overflow: hidden;
-letter-spacing: 0.02em;
-background-color: rgb(128, 17, 17);
+.content-column {
+    position: relative;
+    margin-bottom: 50px;
 }
 
-.content-column{
-position: relative;
-margin-bottom: 50px;
+    .content-column .inner-col {
+        position: relative;
+        padding-left: 30px;
+    }
+
+.about-text {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 26px;
+    color: white;
+    font-weight: 400;
 }
 
-.content-column .inner-col{
-position: relative;
-padding-left: 30px;
+.list-style-one {
+    margin-bottom: 45px;
 }
 
-.about-text{
-margin-bottom: 15px;
-font-size: 16px;
-line-height: 26px;
-color: white;
-font-weight: 400;
+.btn-box {
+    position: relative;
 }
 
-.list-style-one{
-margin-bottom: 45px;
+    .btn-box a {
+        padding: 15px 50px;
+    }
+
+.about-text-layer {
+    position: absolute;
+    right: -110px;
+    top: 50%;
+    font-size: 325px;
+    line-height: 1em;
+    color: #ffffff;
+    margin-top: -175px;
+    font-weight: 500;
 }
 
-.btn-box{
-position: relative;
+.inner-col {
+    margin-top: 50px;
+    padding-bottom: 125px;
 }
 
-.btn-box a{
-padding: 15px 50px;
+.about-2 .video-link {
+    position: absolute;
+    left: 70px;
+    top: 170px;
 }
 
-.about-text-layer{
-position: absolute;
-right: -110px;
-top: 50%;
-font-size: 325px;
-line-height: 1em;
-color: #ffffff;
-margin-top: -175px;
-font-weight: 500;
-}
+    .about-2 .video-link .link {
+        position: relative;
+        display: block;
+        font-size: 22px;
+        color: white;
+        font-weight: 400;
+        text-align: center;
+        height: 100px;
+        width: 100px;
+        line-height: 100px;
+        background-color: #ffffff;
+        border-radius: 50%;
+    }
 
-.inner-col{
-margin-top: 50px;
-padding-bottom: 125px;
-}
-
-.about-2  .video-link{
-position: absolute;
-left: 70px;
-top: 170px;
-}
-
-.about-2 .video-link .link{
-position: relative;
-display: block;
-font-size: 22px;
-color: white;
-font-weight: 400;
-text-align: center;
-height: 100px;
-width: 100px;
-line-height: 100px;
-background-color: #ffffff;
-border-radius: 50%;
-}
-
- .right{
+.right {
     text-align: right;
-} 
+}

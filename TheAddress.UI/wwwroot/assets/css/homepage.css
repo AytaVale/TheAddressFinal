@@ -734,3 +734,16 @@ ul {
 .logo-box img {
     max-width: 220px;
 }
+@media (max-width: 992px) {
+    .f-none {
+        display: none;
+    }
+
+    .logo-widget {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+    
