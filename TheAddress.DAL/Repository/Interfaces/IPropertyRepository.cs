@@ -10,5 +10,6 @@ namespace TheAddress.DAL.Repository.Interfaces
     public interface IPropertyRepository : IGenericRepository<Property>
     {
         public Task<List<Property>> GetByCategoryIdAsync(int id);
+        public Property UpdateProperty(Property item);
     }
 }

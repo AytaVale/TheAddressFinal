@@ -9,6 +9,6 @@ namespace TheAddress.BLL.Services.Interfaces
 
         public Task<List<PropertyDto>> GetPropertiesByCategoryIdAsync(int id);
         public Task<PropertyDto> GetPropertiesDetailByIdAsync(int id);
-
+        public PropertyDto UpdateProperty(PropertyDto item);
     }
 }

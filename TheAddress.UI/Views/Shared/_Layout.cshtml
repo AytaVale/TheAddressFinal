@@ -96,12 +96,26 @@
             $(".message-1").css("display", "none");
             $(".message-2").css("display", "block");
             }, 5000
-            )
-           
-
+            ) 
 
         }
         )
+        
+        $('#currency').change(function (z) {
+            z.preventDefault();
+            var id = $(this).val();
+            var price = $("#price").val();
+
+            $.ajax({
+                type: 'Get',
+                url: `/property/currency/${id}/${price}`,
+                success: function (response) {
+                    if (response.error == false) {
+                        $(".price > span").text(response.price);
+                }
+                }
+            });
+        })
     </script>
 
 </body>

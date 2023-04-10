@@ -18,5 +18,20 @@ namespace TheAddress.DAL.Repository
 
             return products.ToList();
         }
+
+        public Property UpdateProperty(Property item)
+        {
+            var dbEntity = _entities.Find(item.Id);
+            item.InsertDate = dbEntity.InsertDate;
+            item.UpdateDate = DateTime.Now;
+            if (string.IsNullOrEmpty(item.ProfileDocPath))
+            {
+                item.ProfileDocPath = dbEntity.ProfileDocPath;
+            }
+            _entities.Update(item);
+            _dbContext.SaveChanges();
+            return item;
+        }
+
     }
 }

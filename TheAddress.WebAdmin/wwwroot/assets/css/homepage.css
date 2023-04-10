@@ -525,6 +525,10 @@ body {
     .image-box {
         height: 500px;
     }
+    .about
+    {
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -535,6 +539,9 @@ body {
 
     .image-box {
         height: 350px;
+    }
+    .about {
+        display: block;
     }
 
     .title {
@@ -557,6 +564,9 @@ body {
 
     .text {
         font-size: 0.8em;
+    }
+    .about {
+        display: block;
     }
 }
 
@@ -746,7 +756,3 @@ ul {
         justify-content: center;
     }
 }
-/*.fotorama__stage {
-    width: 355px !important;
-    height: 236px !important;
-}*/

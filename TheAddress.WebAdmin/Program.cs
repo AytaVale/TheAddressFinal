@@ -12,6 +12,7 @@ using TheAddress.DAL.DBModel;
 using TheAddress.DAL.Repository.Interfaces;
 using TheAddress.DAL.Repository;
 using TheAddress.WebAdmin.Helpers;
+using Microsoft.AspNetCore.Http.Features;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseSerilog();
@@ -75,6 +76,23 @@ builder.Services.AddControllersWithViews(cfg =>
 {
     cfg.ModelBinderProviders.Insert(0, new BooleanBinderProvider());
 });
+
+
+
+// Configure Kestrel server limits
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.Limits.MaxRequestBodySize = 314572800; // 300 MB in bytes
+});
+
+// Configure FormOptions for file uploads
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 314572800; // 300 MB in bytes
+});
+
+
+
 
 var app = builder.Build();
 

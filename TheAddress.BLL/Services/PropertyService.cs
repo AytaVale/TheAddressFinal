@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheAddress.BLL.Exceptions;
 using TheAddress.BLL.Services.Interfaces;
 using TheAddress.DAL.DBModel;
 using TheAddress.DAL.Dtos;
@@ -51,6 +52,22 @@ namespace TheAddress.BLL.Services
             var products = await _propertyRepository.GetByCategoryIdAsync(id);
             var productDtos = _mapper.Map<List<PropertyDto>>(products);
             return productDtos;
+        }
+
+        public PropertyDto UpdateProperty(PropertyDto item)
+        {
+            try
+            {
+
+                Property entity = _mapper.Map<Property>(item);
+                Property dbEntity = _propertyRepository.UpdateProperty(entity);
+
+                return _mapper.Map<PropertyDto>(dbEntity);
+            }
+            catch (Exception ex)
+            {
+                throw new CustomException("BLL də əlavə edillərkən xəta yarandı. Xahiş olunur adminsitrator ilə əlaqə saxla.");
+            }
         }
     }
 }

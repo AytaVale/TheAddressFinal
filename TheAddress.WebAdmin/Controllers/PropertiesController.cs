@@ -178,7 +178,7 @@ namespace TheAddress.WebAdmin.Controllers
                     itemDto.ProfileDocPath = itemDto.PropertyDocuments[0].DocumentUrl;
                 }
 
-                _service.Update(itemDto);
+                _service.UpdateProperty(itemDto);
 
                 TempData["success"] = "Əmlak uğurla dəyişdirildi";
                 _logger.LogInformation($"Sistemdə {id} N-li Id  yenilənmişdir");

@@ -1,5 +1,16 @@
 ﻿@model List<Property>
 
+    <style>
+    .wrapper .fotorama__stage {
+        height: 266px !important;
+     }
+
+    .wrapper .fotorama__active > img {
+        height: 267px !important;
+     }
+
+    </style>
+
 @if (string.IsNullOrWhiteSpace(ViewBag.Product))
 {
     @foreach (var item in Model)
@@ -23,11 +34,8 @@
                     </p>
                 </div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item" style="font-size: 20px; font-weight: 600;">@item.Price AZN</li>
+                    <li class="list-group-item" style="font-size: 20px; font-weight: 600;">@((int) item.Price) AZN</li>
                 </ul>
-               @* <div class="card-body">
-                    <a asp-controller="Property" asp-action="index" asp-route-id="@item.Id"  class="card-link">Ətraflı</a>
-                </div>*@
               </a>
             </div>
 

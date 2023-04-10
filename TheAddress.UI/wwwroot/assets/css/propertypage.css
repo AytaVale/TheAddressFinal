@@ -78,12 +78,16 @@
         border: none;
         color: white;
         font-size: 18px;
+        text-align: center;
     }
 
 .property-content-text {
-    margin: 20px 0px;
+    background-color: #ffffff08;
+    margin-top: 55px;
     color: white;
     text-align: justify;
+    font-size: 20px;
+    line-height: 1.8;
 }
 
     .property-content-text > p {

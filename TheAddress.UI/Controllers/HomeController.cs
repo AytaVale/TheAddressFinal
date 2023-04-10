@@ -37,7 +37,8 @@ namespace TheAddress.UI.Controllers
 
             return View();
         }
-
+        [HttpGet]
+       
         public IActionResult AddToCart(int? id, int? ids)
         {
             if (id == null || id == 0) 
@@ -57,7 +58,7 @@ namespace TheAddress.UI.Controllers
             {
                 db.Baskets.Remove(basketrow);
                 db.SaveChanges();
-                    return RedirectToAction("index", "property", new {id=ids});
+                return RedirectToAction("index", "property", new {id=id});
 
             }
             else
@@ -67,7 +68,7 @@ namespace TheAddress.UI.Controllers
                 db.Baskets.Add(basket);
                 db.SaveChanges();
 
-                return RedirectToAction("index", "property", new { id = ids, color = "red" });
+                return RedirectToAction("index", "property", new { id = id, color = "red" });
                
             }
         }

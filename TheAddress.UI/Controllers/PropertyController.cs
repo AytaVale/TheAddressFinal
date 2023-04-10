@@ -37,9 +37,37 @@ namespace TheAddress.UI.Controllers
             {
                 ViewBag.color = "red";
             }
+            if (color != null)
+            {
+                ViewBag.color = "red";
+            }
+            ViewBag.id=id;
             return View(vm);
+
         }
 
+        [Route("/currency/{id}/{price}")]
+        [Route("/property/currency/{id}/{price}")]
+        public IActionResult Currency(string id, decimal price)
+        {
+            if (id=="AZN")
+            {
+                return Json(new{
+                    error=false,
+                    price=price
+                });
+            }
+            else if (id=="USD")
+            {
+                var total = Convert.ToInt32(price)* 1.7;
+                return Json(new
+                {
+                    error = false,
+                    price = total
+                });
+            }
+            return View();
+        }
 
     }
 }

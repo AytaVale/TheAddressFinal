@@ -79,15 +79,16 @@
         border: none;
         color: white;
         font-size: 18px;
+        text-align: center;
     }
 
 .property-content-text {
-    margin-top: 20px;
-    margin: 40px 0px;
+    background-color: #ffffff08;
+    margin-top: 55px;
     color: white;
     text-align: justify;
-    line-height: 2;
-    font-size: 19px
+    font-size: 20px;
+    line-height: 1.8;
 }
 
     .property-content-text > p {
