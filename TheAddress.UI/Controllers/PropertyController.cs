@@ -48,18 +48,37 @@ namespace TheAddress.UI.Controllers
 
         [Route("/currency/{id}/{price}")]
         [Route("/property/currency/{id}/{price}")]
-        public IActionResult Currency(string id, decimal price)
+        public IActionResult Currency(string id, int price)
         {
-            if (id=="AZN")
+            if (id == "AZN")
             {
-                return Json(new{
-                    error=false,
-                    price=price
+                return Json(new
+                {
+                    error = false,
+                    price = price
                 });
             }
-            else if (id=="USD")
+            else if (id == "USD")
             {
-                var total = Convert.ToInt32(price)* 1.7;
+                var total = price * 0.59;
+                return Json(new
+                {
+                    error = false,
+                    price = total
+                });
+            }
+            else if (id == "EUR")
+            {
+                var total = price * 0.54;
+                return Json(new
+                {
+                    error = false,
+                    price = total
+                });
+            }
+            else if (id == "RUB")
+            {
+                var total = price * 47.86;
                 return Json(new
                 {
                     error = false,

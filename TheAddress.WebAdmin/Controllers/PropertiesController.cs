@@ -128,7 +128,6 @@ namespace TheAddress.WebAdmin.Controllers
                 Rent = property.Rent,
                 Location = property.Location,
                 PropertyDocuments = property.PropertyDocuments,
-                ProfileDocPath = property.ProfileDocPath
             };
 
             return View(model);

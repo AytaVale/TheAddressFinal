@@ -97,7 +97,7 @@
                         </div>
                        
                         <div class="price d-flex">
-                            <span>@((int) Model.Property.Price) AZN</span>
+                            <span>@((int) Model.Property.Price)</span>
                             <div class="dropdown-price">
                                 <select name="price" id="currency">
                                     <option value="AZN">AZN</option>
@@ -105,7 +105,7 @@
                                     <option value="EUR">EUR</option>
                                     <option value="RUB">RUB</option>
                                 </select>
-                            <input type="hidden" id="price" value="@Model.Property.Price" />
+                            <input type="hidden" id="price" value="@((int)Model.Property.Price)" />
                             </div>
                         </div>
                         <div class="inputs">
