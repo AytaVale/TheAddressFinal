@@ -126,7 +126,8 @@
             <section class="rated">
                 <h3>
                     Bənzər əmlaklar
-                </h3>              <div class="row cards">
+                </h3>  
+                <div class="row cards">
                 @await Component.InvokeAsync("Cart", new{category = Model.Property.PropertyCategoryId, counts = 5})
                 </div>
             </section>

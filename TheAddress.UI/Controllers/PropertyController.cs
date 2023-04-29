@@ -60,7 +60,7 @@ namespace TheAddress.UI.Controllers
             }
             else if (id == "USD")
             {
-                var total = price * 0.59;
+                var total = Convert.ToInt32(price * 0.59);
                 return Json(new
                 {
                     error = false,
@@ -69,7 +69,7 @@ namespace TheAddress.UI.Controllers
             }
             else if (id == "EUR")
             {
-                var total = price * 0.54;
+                var total = Convert.ToInt32(price * 0.54);
                 return Json(new
                 {
                     error = false,
@@ -78,7 +78,7 @@ namespace TheAddress.UI.Controllers
             }
             else if (id == "RUB")
             {
-                var total = price * 47.86;
+                var total = Convert.ToInt32(price * 47.86);
                 return Json(new
                 {
                     error = false,
